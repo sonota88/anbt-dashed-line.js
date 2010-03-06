@@ -101,7 +101,7 @@ AnbtDashedLine.prototype = {
 
   ,
   distance: function( [x0, y0], [x1, y1]){
-      return Math.sqrt( Math.pow( x1 - x0, 2 ) + Math.pow( y1 - y0, 2 ) );
+    return Math.sqrt( Math.pow( x1 - x0, 2 ) + Math.pow( y1 - y0, 2 ) );
   }
 
 
@@ -284,9 +284,9 @@ AnbtDashedLine.prototype = {
   drawLineFragments: function(ctx, dashedLines, lineStyle){
     for(var a in dashedLines){
       this.drawPolyLine( ctx
-                     , dashedLines[a]
-                     , lineStyle
-                   );
+                         , dashedLines[a]
+                         , lineStyle
+                       );
     }
   }
 
@@ -296,32 +296,32 @@ AnbtDashedLine.prototype = {
     var lastVerticesLength = lineFragments[lineFragments.length-1].length;
 
     if(    lineFragments[lineFragments.length-1][lastVerticesLength-1][0] == nextFragments[0][0][0] // x
-          && lineFragments[lineFragments.length-1][lastVerticesLength-1][1] == nextFragments[0][0][1] // y
+        && lineFragments[lineFragments.length-1][lastVerticesLength-1][1] == nextFragments[0][0][1] // y
       ){
-          lineFragments[lineFragments.length-1].push( nextFragments[0][1] );
-          nextFragments.shift();
+        lineFragments[lineFragments.length-1].push( nextFragments[0][1] );
+        nextFragments.shift();
       }
   }
 
 
   ,
   dashedPolyLine: function(vertices, lineStyle){
-      var startPosition = 0;
-      var lineFragments = [];
+    var startPosition = 0;
+    var lineFragments = [];
     var size = null;
 
-      var returnValue = null;
+    var returnValue = null;
     var vertexLnegth = null;
 
-      for(var a=0, lim=vertices.length-1; a<lim; a++){
-        returnValue = this.dashedLine(
-          vertices[a]
-          , vertices[a+1]
-          , lineStyle
-          , startPosition
-        );
+    for(var a=0, lim=vertices.length-1; a<lim; a++){
+      returnValue = this.dashedLine(
+        vertices[a]
+        , vertices[a+1]
+        , lineStyle
+        , startPosition
+      );
       
-        startPosition = returnValue.startPosition;
+      startPosition = returnValue.startPosition;
 
       if( returnValue.lines.length > 0 ){
         if( lineFragments.length > 0 ){
@@ -329,12 +329,12 @@ AnbtDashedLine.prototype = {
         }
 
         for(var b=0, limB=returnValue.lines.length; b<limB; b++){
-            lineFragments.push( returnValue.lines[b] );
+          lineFragments.push( returnValue.lines[b] );
         }
       }
-      }
+    }
 
-      return lineFragments;
+    return lineFragments;
   }
 
 
