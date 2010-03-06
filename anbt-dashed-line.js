@@ -175,8 +175,6 @@ AnbtDashedLine.prototype = {
   drawPolyLine: function(ctx, points, lineStyle){
     ctx.save();
 
-    lineStyle = this.prepareLineStyle(lineStyle);
-
     ctx.strokeStyle = lineStyle.color;
     ctx.lineWidth   = lineStyle.width;
     ctx.lineCap     = lineStyle.cap;
@@ -315,8 +313,6 @@ AnbtDashedLine.prototype = {
       var returnValue = null;
     var vertexLnegth = null;
 
-    lineStyle = this.prepareLineStyle(lineStyle);
-
       for(var a=0, lim=vertices.length-1; a<lim; a++){
         returnValue = this.dashedLine(
           vertices[a]
@@ -344,6 +340,7 @@ AnbtDashedLine.prototype = {
 
   ,
   drawDashedPolyLine: function(ctx, vertices, lineStyle){
+    lineStyle = this.prepareLineStyle(lineStyle);
     var lineFragments = this.dashedPolyLine( vertices, lineStyle );
     this.drawLineFragments( ctx, lineFragments, lineStyle );
   }
