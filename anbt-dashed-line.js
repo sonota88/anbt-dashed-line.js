@@ -100,7 +100,11 @@ AnbtDashedLine.prototype = {
 
 
   ,
-  distance: function( [x0, y0], [x1, y1]){
+  distance: function(start, end){
+    var x0 = start[0]
+    , y0 = start[1]
+    , x1 = end[0]
+    , y1 = end[1];
     return Math.sqrt( Math.pow( x1 - x0, 2 ) + Math.pow( y1 - y0, 2 ) );
   }
 
