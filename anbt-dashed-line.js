@@ -286,7 +286,7 @@ AnbtDashedLine.prototype = {
 
   ,
   drawLineFragments: function(ctx, dashedLines, lineStyle){
-    for(var a in dashedLines){
+    for(var a = 0; a < dashedLines.length; a++){
       this.drawPolyLine( ctx
                          , dashedLines[a]
                          , lineStyle
